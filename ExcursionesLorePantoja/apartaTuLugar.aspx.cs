@@ -21,15 +21,17 @@ namespace ExcursionesLorePantoja
         List<int> lugares = new List<int>();
         string valores;
         int id = 1;
-        [System.Web.Services.WebMethod]
-        public static int setIdViaje(string idViaje)
-        {
+        public static int idViajes;
+        //[System.Web.Services.WebMethod]
+        //public static int setIdViaje(string idViaje)
+        //{
 
-            return Convert.ToInt32(idViaje);
-        }
+        //    return Convert.ToInt32(idViaje);
+        //}
         protected void Page_Load(object sender, EventArgs e)
         {
-            litModal.Visible = true;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert(' idViaje= "+idViajes+"');", true);
+            //litModal.Visible = true;
             DaoApartaTuLugar objDaoAparta = new DaoApartaTuLugar();
             lblPrecioAdulto1.Text = objDaoAparta.getDatosViaje(id)[0].Costo_adulto.ToString();
             lblPrecioNino1.Text = objDaoAparta.getDatosViaje(id)[0].CostoNino.ToString();

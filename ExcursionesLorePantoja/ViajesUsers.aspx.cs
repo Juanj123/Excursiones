@@ -55,13 +55,17 @@ namespace ExcursionesLorePantoja
             }
             txtbuscarviaje.Text = "";
             txtbuscarviaje.Focus();
-
+            
 
         }
-        //[System.Web.Services.WebMethod]
-        //public static int setIdViaje(string idViaje) {
-
-        //    return Convert.ToInt32(idViaje);
-        //}
+        [System.Web.Services.WebMethod]
+        public static void setIdViaje(string idViaje)
+        {
+            apartaTuLugar apartaTuLugar = new apartaTuLugar();
+            apartaTuLugar.idViajes = Convert.ToInt32(idViaje);
+           
+            string a;
+           
+        }
     }
 }
