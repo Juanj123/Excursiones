@@ -32,7 +32,7 @@ namespace Capa_Datos
             {
                 pojoAmbu = new PojoViajes();
                 pojoAmbu.Idviaje = dr.GetInt32("idviaje");
-                pojoAmbu.Idautobus = dr.GetInt32("idautobus");
+                //pojoAmbu.Idautobus = dr.GetInt32("idautobus");
                 pojoAmbu.Destino = dr.GetString("destino");
                 pojoAmbu.Horaregreso = dr.GetString("hora_regreso");
                 pojoAmbu.Horasalida = dr.GetString("hora_salida");

@@ -21,7 +21,12 @@ namespace ExcursionesLorePantoja
         List<int> lugares = new List<int>();
         string valores;
         int id = 1;
+        [System.Web.Services.WebMethod]
+        public static int setIdViaje(string idViaje)
+        {
 
+            return Convert.ToInt32(idViaje);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             litModal.Visible = true;

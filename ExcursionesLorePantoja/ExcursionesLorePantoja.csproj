@@ -214,6 +214,7 @@
     <Content Include="scripts\dialogosjQuery.js" />
     <Content Include="scripts\Galeria.js" />
     <Content Include="scripts\AgregarImagen.js" />
+    <Content Include="scripts\idviaje.js" />
     <Content Include="scripts\Imagen.js" />
     <Content Include="scripts\internos\apartaTuLugar.js" />
     <Content Include="scripts\internos\Autobus.js" />

@@ -2,6 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bod" runat="server">
+   
      <link href="content/estilosPrincipal.css" rel="stylesheet" />
     <br />
      <div class="container-fluid">
@@ -33,11 +34,8 @@
              <asp:Literal Text="" runat="server" ID="ltViajes" />
         </div>
     </div>
-    <script type="text/javascript">
-        function myFunction() {
-            window.confirm("hola");
-        }
-    </script>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
+    <script src="scripts/idviaje.js" type="text/javascript"></script>
 </asp:Content>

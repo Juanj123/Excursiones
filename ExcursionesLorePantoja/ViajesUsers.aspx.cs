@@ -22,7 +22,7 @@ namespace ExcursionesLorePantoja
 
                 for (int i = 0; i < lis.Count; i++)
                 {
-                    ltViajes.Text += "<div class='promo' style='float:left; overflow: hidden; margin-left: 25px; margin-top: 15px;'><div class='imge'><img src = 'img/benches.jpg' style='width: 400px; height: 200px;'></div> <h3>" + lis[i].Destino + "</h3><div class='txt'><p class='text-justify pe'>BALNEARIO LA GRUTA👙 Y A DISFRUTAR DE UNA TARDE EN SAN MIGUEL DE ALLENDE🏦 DOMINGO 12 DE MAYO 2019 Vamos a disfrutar de las aguas termales del balneario la gruta en San Miguel de Allende y como el lugar lo cierran temprano nos vamos a disfrutar de una tarde-noche en San Miguel de Allende..te late ?? !!</p> </div><div class='pi' style='overflow: hidden;'> <h4 style = 'float:left'>" + lis[i].Costoadulto + "</h4><Button class='btn btn-success'    style='float:right'><i class='fas fa-bus'></i> Reservar</Button></div></div>";
+                    ltViajes.Text += "<div class='promo' style='float:left; overflow: hidden; margin-left: 25px; margin-top: 15px;'><div class='imge'><img src = 'img/benches.jpg' style='width: 400px; height: 200px;'></div> <h3>" + lis[i].Destino + "</h3><div class='txt'><p class='text-justify pe'>BALNEARIO LA GRUTA👙 Y A DISFRUTAR DE UNA TARDE EN SAN MIGUEL DE ALLENDE🏦 DOMINGO 12 DE MAYO 2019 Vamos a disfrutar de las aguas termales del balneario la gruta en San Miguel de Allende y como el lugar lo cierran temprano nos vamos a disfrutar de una tarde-noche en San Miguel de Allende..te late ?? !!</p> </div><div class='pi' style='overflow: hidden;'> <h4 style = 'float:left'>" + lis[i].Costoadulto + "</h4><Button class='btn btn-success btnIdViaje'  data-id='"+lis[i].Idviaje+"'  style='float:right'><i class='fas fa-bus'></i> Reservar</Button></div></div>";
                 }
 
             }
@@ -58,5 +58,10 @@ namespace ExcursionesLorePantoja
 
 
         }
+        //[System.Web.Services.WebMethod]
+        //public static int setIdViaje(string idViaje) {
+
+        //    return Convert.ToInt32(idViaje);
+        //}
     }
 }
