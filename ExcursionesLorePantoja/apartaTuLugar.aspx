@@ -3,6 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bod" runat="server">
+    <%
+        var Text = "TEXTO";
+        var Num = 333;
+    %>
+
+    <Script>
+alert("<%=Text%>");
+alert("<%=Num%>");
+</Script>
     <link rel="stylesheet" href="content/animate.min.css">
     <link rel="stylesheet" href="content/apartaTuLugar.css" />
     <div id="tarjetaLugarViaje" style="position: absolute; margin-left: 50%">
@@ -43,7 +52,7 @@
                                 <option>10</option>
                             </select>
                         </div>
-                        
+
                         <label id="lblAdultos" style="position: absolute; margin-left: -50px; margin-top: -50px">Total a pagar</label>
                         <script>
                             function pagoAdulto() {
@@ -153,127 +162,6 @@
             </div>
         </div>
     </div>
-    <asp:Literal Visible="false" runat="server" Mode="Transform" ID="litModal">
-        <div class="modal" tabindex="-1" role="dialog" id="Validacion">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Validacion Edad</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="demo">
-
-    <label for="dia">Seleccione Dia</label>
-    <select name="dia" id="cmbDia">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-      <option>13</option>
-      <option>14</option>
-      <option>15</option>
-      <option>16</option>
-      <option>17</option>
-      <option>18</option>
-      <option>19</option>
-      <option>20</option>
-      <option>21</option>
-      <option>22</option>
-      <option>23</option>
-      <option>24</option>
-      <option>25</option>
-      <option>26</option>
-      <option>27</option>
-      <option>28</option>
-      <option>29</option>
-      <option>30</option>
-      <option>31</option>
-    </select>
- 
-    <label for="mes">Seleccione Mes</label>
-    <select name="mes" id="cmbMes">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-    </select>
- 
-    <label for="año">Seleccione Año</label>
-    <select name="año" id="cmbAño">
-      <option>2003</option>
-      <option>2002</option>
-      <option>2001</option>
-      <option>2000</option>
-      <option>1999</option>
-      <option>1998</option>
-      <option>1997</option>
-      <option>1996</option>
-      <option>1995</option>
-      <option>1994</option>
-      <option>1993</option>
-      <option>1992</option>
-      <option>1991</option>
-      <option>1990</option>
-      <option>1989</option>
-      <option>1988</option>
-      <option>1987</option>
-      <option>1986</option>
-      <option>1985</option>
-      <option>1984</option>
-      <option>1983</option>
-      <option>1982</option>
-      <option>1981</option>
-      <option>1980</option>
-      <option>1979</option>
-      <option>1978</option>
-      <option>1977</option>
-      <option>1976</option>
-      <option>1975</option>
-      <option>1974</option>
-      <option>1973</option>
-      <option>1972</option>
-      <option>1971</option>
-      <option>1970</option>
-      <option>1969</option>
-      <option>1968</option>
-      <option>1967</option>
-      <option>1966</option>
-      <option>1965</option>
-      <option>1964</option>
-      <option>1963</option>
-      <option>1962</option>
-      <option>1961</option>
-      <option>Otro</option>
-    </select>
-</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-    </asp:Literal>
 
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/internos/apartaTuLugar.js"></script>

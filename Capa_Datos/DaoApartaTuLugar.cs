@@ -41,9 +41,10 @@ namespace Capa_Datos
             cm.Parameters.AddWithValue("@IdViaje", objcrear.IdViaje);
             cm.Parameters.AddWithValue("@IdAutobus", objcrear.IdAutobus);
             cm.Parameters.AddWithValue("@IdReservacion", objcrear.IdReservacion);
+            cm.Parameters.AddWithValue("@totalAPagar", objcrear.TotalPagar);
             cm.Parameters.AddWithValue("@N_Asiento", objcrear.N_Asiento);
             cm.Parameters.AddWithValue("@Nota", objcrear.Nota);
-            sql = "insert into reservacion(idAutobus, idViaje) value(@IdAutobus, @IdViaje);";
+            sql = "insert into reservacion(idAutobus, idViaje, totalAPagar) value(@IdAutobus, @IdViaje, @totalAPagar);";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text;
             cm.Connection = conect.conectar;
@@ -126,7 +127,7 @@ namespace Capa_Datos
             string sql;
             MySqlCommand cm = new MySqlCommand();
             MySqlDataReader dr;
-            sql = "select idAutobus from viajes where idViaje= '" + id + "';";
+            sql = "select idAutobus from autoviaje where idViaje = '" + id + "';";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text;
             cm.Connection = conect.conectar;
@@ -160,6 +161,54 @@ namespace Capa_Datos
             }
             conect.conectar.Close();
             return idAutobus;
+        }
+
+        public int getIdUsuario(string usuario)
+        {
+            int concep = 0;
+            conect.conexion();
+            string sql;
+            PojoUsuarios pojoAmbu;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select idUsuario from usuarios where Usuario='" + usuario + "'";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+
+            while (dr.Read())
+            {
+                pojoAmbu = new PojoUsuarios();
+                pojoAmbu.Id = dr.GetInt32("idUsuario");
+                concep = pojoAmbu.Id;
+            }
+            conect.conectar.Close();
+            return concep;
+        }
+
+        public int getIdAutobus(string usuario)
+        {
+            int concep = 0;
+            conect.conexion();
+            string sql;
+            PojoUsuarios pojoAmbu;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select idUsuario from usuarios where Usuario='" + usuario + "'";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+
+            while (dr.Read())
+            {
+                pojoAmbu = new PojoUsuarios();
+                pojoAmbu.Id = dr.GetInt32("idUsuario");
+                concep = pojoAmbu.Id;
+            }
+            conect.conectar.Close();
+            return concep;
         }
 
     }
