@@ -101,13 +101,68 @@ namespace Capa_Datos
                     pojoAmbu.Usuario = dr.GetString("Usuario");
                     //pojoAmbu.Contraseña = dr.GetString("contraseña");
                     pojoAmbu.Tipo = dr.GetString("tipo");
-                concep.Add(pojoAmbu);
+                    concep.Add(pojoAmbu);
                 }
             cone.conectar.Close();
             return concep;
-           
-                
-            
+        }
+
+        public bool modificar(PojoUsuarios usu)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+
+            try
+            {
+                cone.conexion();
+                cmd.Parameters.AddWithValue("@idUsuario", usu.Id);
+                cmd.Parameters.AddWithValue("@nombres", usu.Nombres);
+                cmd.Parameters.AddWithValue("@apellidos", usu.Apellidos);
+                cmd.Parameters.AddWithValue("@telefono", usu.Telefono);
+                cmd.Parameters.AddWithValue("@edad", usu.Edad);
+                cmd.Parameters.AddWithValue("@correo", usu.Correo);
+                cmd.Parameters.AddWithValue("@direccion", usu.Direccion);
+                cmd.Parameters.AddWithValue("@Usuario", usu.Usuario);
+                cmd.Parameters.AddWithValue("@contraseña", usu.Contraseña);
+                string consul = "update usuarios set  idUsuario=@idUsuario, nombres=@nombres, apellidos=@apellidos, telefono=@telefono, edad=@edad, correo=@correo, direccion=@direccion, Usuario=@Usuario, contraseña=@contraseña where idUsuario=@idUsuario";
+                cmd.CommandText = consul;
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = cone.conectar;
+                cmd.ExecuteNonQuery();
+
+                return true;
+
+            }
+            catch
+            {
+                return true;
+            }
+            finally
+            {
+                cone.conectar.Close();
+                cone.conectar.Close();
+            }
+
+        }
+
+        public int getidusuario(string id)
+        {
+
+            int idAutobus = 0;
+            cone.conexion();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select idUsuario from usuarios where Usuario= '" + id + "';";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = cone.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                idAutobus = dr.GetInt32("idUsuario");
+            }
+            cone.conectar.Close();
+            return idAutobus;
         }
     }
 }
