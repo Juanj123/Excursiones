@@ -13,6 +13,8 @@ using System.Text.RegularExpressions;
 using System.Web.Services;
 using Capa_Datos;
 using Capa_Pojos;
+using System.Text;
+
 namespace ExcursionesLorePantoja
 {
 
@@ -32,6 +34,19 @@ namespace ExcursionesLorePantoja
 
         //    return Convert.ToInt32(idViaje);
         //}
+
+        private void RegistrarScript()
+        {
+            const string ScriptKey = "ScriptKey";
+            if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
+            {
+                StringBuilder fn = new StringBuilder();
+                fn.Append("llenarAutobus();");
+                ClientScript.RegisterStartupScript(this.GetType(),
+        ScriptKey, fn.ToString(), true);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert(' idViaje= "+idViajes+"');", true);
@@ -50,8 +65,7 @@ namespace ExcursionesLorePantoja
         {
             int idUsuario = dao.getIdUsuario(Session["login"].ToString());
             idAutobus = dao.getTipoAutobus(idViajes);
-            totalPagar = Request.Cookies["Lugares"].Value;
-            string[] Total = totalPagar.Split(',');
+            totalPagar = Request.Cookies["Total"].Value;
             valores = Request.Cookies["Asientos"].Value;
             string[] asientos = valores.Split(',');
             foreach (string word in asientos)
@@ -299,7 +313,7 @@ namespace ExcursionesLorePantoja
             objAparta.IdUsuario = idUsuario;
             objAparta.IdAutobus = idAutobus;
             objAparta.IdViaje = idViajes;
-            objAparta.TotalPagar = 1000;
+            objAparta.TotalPagar = double.Parse(totalPagar);
             foreach (int asiento in lugares)
             {
                 objAparta.N_Asiento = asiento;

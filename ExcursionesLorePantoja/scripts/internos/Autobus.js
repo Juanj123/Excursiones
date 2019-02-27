@@ -1064,7 +1064,7 @@ function AutobusVolvo() {
         }
         var Json = JSON.stringify(asientosSeleccionados.unique());
         document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
-        document.cookie = 'Lugares =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
+        document.cookie = 'Total =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
     });
 
 
@@ -1082,35 +1082,35 @@ function AutobusIrizar() {
         '<table style="margin-left: 90px; margin-top: -570px; position: absolute; z-index: auto; text-align: center;">' +
         ' <tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs1" type="button" class="btn btn-light">03</button></td>' +
+        '<button id="btnAs3" type="button" class="btn btn-light">03</button></td>' +
         '</td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs2" type="button" class="btn btn-light">04</button></td >' +
+        '<button id="btnAs4" type="button" class="btn btn-light">04</button></td >' +
         '</td >' +
         '</tr >' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs5" type="button" class="btn btn-light">07</button></td>' +
+        '<button id="btnAs7" type="button" class="btn btn-light">07</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs6" type="button" class="btn btn-light">08</button></td>' +
+        '<button id="btnAs8" type="button" class="btn btn-light">08</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs9" type="button" class="btn btn-light">11</button></td>' +
+        '<button id="btnAs11" type="button" class="btn btn-light">11</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs10" type="button" class="btn btn-light">12</button></td>' +
+        '<button id="btnAs12" type="button" class="btn btn-light">12</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs13" type="button" class="btn btn-light">15</button></td>' +
+        '<button id="btnAs15" type="button" class="btn btn-light">15</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs14" type="button" class="btn btn-light">16</button></td>' +
+        '<button id="btnAs16" type="button" class="btn btn-light">16</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs17" type="button" class="btn btn-light">19</button></td>' +
+        '<button id="btnAs19" type="button" class="btn btn-light">19</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs18" type="button" class="btn btn-light">20</button></td>' +
+        '<button id="btnAs20" type="button" class="btn btn-light">20</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
@@ -1120,33 +1120,33 @@ function AutobusIrizar() {
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs25" type="button" class="btn btn-light">23</button></td>' +
+        '<button id="btnAs23" type="button" class="btn btn-light">23</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs26" type="button" class="btn btn-light">24</button></td>' +
+        '<button id="btnAs24" type="button" class="btn btn-light">24</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs29" type="button" class="btn btn-light">27</button></td>' +
+        '<button id="btnAs27" type="button" class="btn btn-light">27</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs30" type="button" class="btn btn-light">28</button></td>' +
+        '<button id="btnAs28" type="button" class="btn btn-light">28</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs33" type="button" class="btn btn-light">31</button></td>' +
+        '<button id="btnAs31" type="button" class="btn btn-light">31</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs34" type="button" class="btn btn-light">32</button></td>' +
+        '<button id="btnAs32" type="button" class="btn btn-light">32</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs37" type="button" class="btn btn-light">35</button></td>' +
+        '<button id="btnAs35" type="button" class="btn btn-light">35</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs38" type="button" class="btn btn-light">36</button></td>' +
+        '<button id="btnAs36" type="button" class="btn btn-light">36</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs41" type="button" class="btn btn-light">39</button></td>' +
+        '<button id="btnAs39" type="button" class="btn btn-light">39</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs42" type="button" class="btn btn-light">40</button></td>' +
+        '<button id="btnAs40" type="button" class="btn btn-light">40</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
@@ -1165,66 +1165,66 @@ function AutobusIrizar() {
         '<table style="margin-left: 230px; margin-top: -570px; position: absolute; z-index: auto; text-align: center;">' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs3" type="button" class="btn btn-light">01</button></td>' +
+        '<button id="btnAs1" type="button" class="btn btn-light">01</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs4" type="button" class="btn btn-light">02</button></td>' +
+        '<button id="btnAs2" type="button" class="btn btn-light">02</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs7" type="button" class="btn btn-light">05</button></td>' +
+        '<button id="btnAs5" type="button" class="btn btn-light">05</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs8" type="button" class="btn btn-light">06</button></td>' +
+        '<button id="btnAs6" type="button" class="btn btn-light">06</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs11" type="button" class="btn btn-light">09</button></td>' +
+        '<button id="btnAs9" type="button" class="btn btn-light">09</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs12" type="button" class="btn btn-light">10</button></td>' +
+        '<button id="btnAs10" type="button" class="btn btn-light">10</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs15" type="button" class="btn btn-light">13</button></td>' +
+        '<button id="btnAs13" type="button" class="btn btn-light">13</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs16" type="button" class="btn btn-light">14</button></td>' +
+        '<button id="btnAs14" type="button" class="btn btn-light">14</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs19" type="button" class="btn btn-light">17</button></td>' +
+        '<button id="btnAs17" type="button" class="btn btn-light">17</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs20" type="button" class="btn btn-light">18</button></td>' +
+        '<button id="btnAs18" type="button" class="btn btn-light">18</button></td>' +
         '</tr>' +
         '<tr><td>&nbsp;</td></tr>' +
         '<tr><td>&nbsp;</td></tr>' +
         '<tr><td>&nbsp;</td></tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs23" type="button" class="btn btn-light">25</button></td>' +
+        '<button id="btnAs25" type="button" class="btn btn-light">25</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs24" type="button" class="btn btn-light">26</button></td>' +
+        '<button id="btnAs26" type="button" class="btn btn-light">26</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs27" type="button" class="btn btn-light">29</button></td>' +
+        '<button id="btnAs29" type="button" class="btn btn-light">29</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs28" type="button" class="btn btn-light">30</button></td>' +
+        '<button id="btnAs30" type="button" class="btn btn-light">30</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs31" type="button" class="btn btn-light">33</button></td>' +
+        '<button id="btnAs33" type="button" class="btn btn-light">33</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs32" type="button" class="btn btn-light">34</button></td>' +
+        '<button id="btnAs34" type="button" class="btn btn-light">34</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs35" type="button" class="btn btn-light">37</button></td>' +
+        '<button id="btnAs37" type="button" class="btn btn-light">37</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs36" type="button" class="btn btn-light">38</button></td>' +
+        '<button id="btnAs38" type="button" class="btn btn-light">38</button></td>' +
         '</tr>' +
         '<tr>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs39" type="button" class="btn btn-light">41</button></td>' +
+        '<button id="btnAs41" type="button" class="btn btn-light">41</button></td>' +
         '<td width="35" height="35">' +
-        '<button id="btnAs40" type="button" class="btn btn-light">42</button></td>' +
+        '<button id="btnAs42" type="button" class="btn btn-light">42</button></td>' +
         '</tr>' +
         '</table>' +
         '</div>');
@@ -1926,7 +1926,7 @@ function AutobusIrizar() {
         }
         var Json = JSON.stringify(asientosSeleccionados.unique());
         document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
-        document.cookie = 'Lugares =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
+        document.cookie = 'Total =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
     });
 
 
