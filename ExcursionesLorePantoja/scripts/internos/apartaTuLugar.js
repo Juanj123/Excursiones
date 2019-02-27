@@ -135,7 +135,10 @@ $("#btnConfirmar").click(function () {
         '<div class="alert alert-dark" role="alert">' +
         '<h3 style="color:black; text-align:center;">Asientos Seleccionados</h3>' +
         '</div>' +
-        '<div id="Padre"></div>');
+        '<div id="Padre"></div>' +
+        '<div class="alert alert-dark" role="alert">' +
+        ''
+        '</div >');
     $("#exampleModal").modal("show");
     for (var j = 0; j < asientosSeleccionados.length; j++) {
         var asiento = '<button type="button" class="btn btn-primary"><h4>Asiento <span class="badge badge-light">' + asientosSeleccionados.unique()[j] + '</span></h4></button>';
