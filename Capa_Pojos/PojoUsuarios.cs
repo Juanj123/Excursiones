@@ -8,6 +8,7 @@ namespace Capa_Pojos
 {
     public class PojoUsuarios
     {
+        int id;
         string nombres;
         string apellidos;
         string telefono;

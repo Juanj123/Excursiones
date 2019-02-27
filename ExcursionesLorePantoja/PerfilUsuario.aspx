@@ -23,7 +23,7 @@
                     <p><asp:TextBox ID="Txtusuario" runat="server" style="margin:0 auto" CssClass="form-control"></asp:TextBox></p>
                     <p><i class="glyphicon glyphicon-home"></i> Contraseña:</p>
                     <p><asp:TextBox ID="Txtcontrasena" runat="server" style="margin:0 auto" CssClass="form-control"></asp:TextBox></p>
-                    <p><asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar Registro" OnClick="BtnGuardar_Click"/></p>
+                    <p><asp:Button ID="BtnGuardar" runat="server" CssClass="btn btn-primary" Text="Modificar" OnClick="BtnGuardar_Click" Width="178px"/></p>
             </div>
         </div>
     </div>
