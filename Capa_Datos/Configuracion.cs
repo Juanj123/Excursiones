@@ -12,6 +12,6 @@ namespace Capa_Datos
         public static String G_PUERTO = "3306";
         public static String G_DATABASE = "viajesLore";
         public static String G_USER_ID = "root";
-        public static String G_USER_PWD = "root";
+        public static String G_USER_PWD = "";
     }
 }

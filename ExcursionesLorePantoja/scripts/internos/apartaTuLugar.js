@@ -141,7 +141,4 @@ $("#btnConfirmar").click(function () {
         var asiento = '<button type="button" class="btn btn-primary"><h4>Asiento <span class="badge badge-light">' + asientosSeleccionados.unique()[j] + '</span></h4></button>';
         $("#Padre").append(asiento);
     }
-    var Json = JSON.stringify(asientosSeleccionados.unique());
-    document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
-    document.cookie = 'Lugares =' + Sumar() + ';';
 });

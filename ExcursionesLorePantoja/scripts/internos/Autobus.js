@@ -1,10 +1,16 @@
 ﻿function llenarAutobus() {
+    var idAutobus;
     $("#tarjetaLugarViaje").addClass("animated bounceInLeft");
     $("#opcionesApartaTuLugar").addClass("animated bounceInLeft");
     $("#asientosAutobus").addClass("animated bounceInLeft");
     $("#tarjetaLugarViaje").css({ 'position': 'absolute', 'margin-left': '65%', 'margin-top': '1px' });
     $("#opcionesApartaTuLugar").css({ 'position': 'absolute', 'margin-left': '30%', 'margin-top': '5%' });
-    AutobusVolvo();
+    //Aqui cargo la imagen del autobus Volvo y genera lugares
+    if (idAutobus === 11) {
+        AutobusVolvo();
+    } else {
+        AutobusIrizar();
+    } 
     $("#asientosAutobus").css({ 'display': 'block' });
     $("#btnSelectAsientos").css({ 'display': 'none' });
     var asientosOcupados;
@@ -1058,7 +1064,7 @@ function AutobusVolvo() {
         }
         var Json = JSON.stringify(asientosSeleccionados.unique());
         document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
-        document.cookie = 'Lugares =' + Sumar() + ';';
+        document.cookie = 'Lugares =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
     });
 
 
@@ -1920,7 +1926,7 @@ function AutobusIrizar() {
         }
         var Json = JSON.stringify(asientosSeleccionados.unique());
         document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
-        document.cookie = 'Lugares =' + Sumar() + ';';
+        document.cookie = 'Lugares =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
     });
 
 

@@ -18,9 +18,13 @@ namespace ExcursionesLorePantoja
 
     public partial class apartaTuLugar : System.Web.UI.Page
     {
+        DatosRegistroClientes datosRegistroClientes = new DatosRegistroClientes();
+        DaoApartaTuLugar dao = new DaoApartaTuLugar();
+        List<PojoUsuarios> pojos = new List<PojoUsuarios>();
         List<int> lugares = new List<int>();
         string valores;
-        int id = 1;
+        string totalPagar;
+        int idAutobus = 0;
         public static int idViajes;
         //[System.Web.Services.WebMethod]
         //public static int setIdViaje(string idViaje)
@@ -31,21 +35,23 @@ namespace ExcursionesLorePantoja
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert(' idViaje= "+idViajes+"');", true);
-            //litModal.Visible = true;
             DaoApartaTuLugar objDaoAparta = new DaoApartaTuLugar();
-            lblPrecioAdulto1.Text = objDaoAparta.getDatosViaje(id)[0].Costo_adulto.ToString();
-            lblPrecioNino1.Text = objDaoAparta.getDatosViaje(id)[0].CostoNino.ToString();
-            lblDestino.Text = objDaoAparta.getDatosViaje(id)[0].Destino.ToString();
-            var lista = objDaoAparta.getAsientosOcupados(id);
+            lblPrecioAdulto1.Text = objDaoAparta.getDatosViaje(idViajes)[0].Costo_adulto.ToString();
+            lblPrecioNino1.Text = objDaoAparta.getDatosViaje(idViajes)[0].CostoNino.ToString();
+            lblDestino.Text = objDaoAparta.getDatosViaje(idViajes)[0].Destino.ToString();
+            var lista = objDaoAparta.getAsientosOcupados(idViajes);
             var Json = JsonConvert.SerializeObject(lista);
             Response.Cookies["asientosAutobus"].Value = Json;
+            idAutobus = dao.getTipoAutobus(idViajes);
+
         }
 
         protected void BtnEnviar_Click(object sender, EventArgs e)
         {
-            int idUsuario = 100;
-            int idAutobus = 10;
-            int idViaje = 1;
+            int idUsuario = dao.getIdUsuario(Session["login"].ToString());
+            idAutobus = dao.getTipoAutobus(idViajes);
+            totalPagar = Request.Cookies["Lugares"].Value;
+            string[] Total = totalPagar.Split(',');
             valores = Request.Cookies["Asientos"].Value;
             string[] asientos = valores.Split(',');
             foreach (string word in asientos)
@@ -292,7 +298,8 @@ namespace ExcursionesLorePantoja
             DaoApartaTuLugar objDaoAparta = new DaoApartaTuLugar();
             objAparta.IdUsuario = idUsuario;
             objAparta.IdAutobus = idAutobus;
-            objAparta.IdViaje = idViaje;
+            objAparta.IdViaje = idViajes;
+            objAparta.TotalPagar = 1000;
             foreach (int asiento in lugares)
             {
                 objAparta.N_Asiento = asiento;

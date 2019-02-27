@@ -83,7 +83,7 @@ namespace Capa_Datos
                 MySqlCommand cm = new MySqlCommand();
                 MySqlDataReader dr;
                 cone.conexion();
-                string sql = "select *from usuarios where Usuario='"+usuario+"'";
+                string sql = "select * from usuarios where Usuario='" + usuario+"'";
                 cm.CommandText = sql;
                 cm.CommandType = CommandType.Text;
                 cm.Connection = cone.conectar;

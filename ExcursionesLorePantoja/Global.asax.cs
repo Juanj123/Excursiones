@@ -17,7 +17,7 @@ namespace ExcursionesLorePantoja
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            Session["login"] = "";
+            Session["login"] = "bmxpc7";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

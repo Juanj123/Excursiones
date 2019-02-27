@@ -17,6 +17,7 @@ namespace Capa_Pojos
         string usuario;
         string contraseña;
         string tipo;
+        int id;
 
         public string Nombres { get => nombres; set => nombres = value; }
         public string Apellidos { get => apellidos; set => apellidos = value; }
@@ -27,5 +28,6 @@ namespace Capa_Pojos
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contraseña { get => contraseña; set => contraseña = value; }
         public string Tipo { get => tipo; set => tipo = value; }
+        public int Id { get => id; set => id = value; }
     }
 }
