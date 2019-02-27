@@ -71,10 +71,8 @@
  
 </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <script>
-    baguetteBox.run('.tz-gallery');
-</script>
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
+    
 </asp:Content>

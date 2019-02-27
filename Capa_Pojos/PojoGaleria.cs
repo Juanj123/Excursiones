@@ -9,11 +9,12 @@ namespace Capa_Pojos
     public class PojoGaleria
     {
         int idGaleria, idUsuario;
-        string titulo, img_galeria;
+        string titulo, img_galeria, destino;
 
         public int IdGaleria { get => idGaleria; set => idGaleria = value; }
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public string Img_galeria { get => img_galeria; set => img_galeria = value; }
+        public string Destino { get => destino; set => destino = value; }
     }
 }

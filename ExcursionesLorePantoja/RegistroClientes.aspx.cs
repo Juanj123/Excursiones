@@ -32,7 +32,7 @@ namespace ExcursionesLorePantoja
             pojousu.Tipo = "cliente";
 
             drc.AgregarClientes(pojousu);
-            Response.Redirect("login.aspx");
+            Response.Redirect("~/login.aspx");
         }
     }
 }

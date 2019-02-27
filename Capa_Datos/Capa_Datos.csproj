@@ -62,6 +62,7 @@
     <Compile Include="DaoPrincipalGaleria.cs" />
     <Compile Include="DaoViaje.cs" />
     <Compile Include="DaoVideo.cs" />
+    <Compile Include="DatosGaleriaUsers.cs" />
     <Compile Include="DatosLogin.cs" />
     <Compile Include="DatosRegistroClientes.cs" />
     <Compile Include="DatosViajes.cs" />

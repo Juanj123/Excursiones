@@ -163,6 +163,7 @@
     <Content Include="ControlAbonosUsuarios.aspx" />
     <Content Include="Descripcion.aspx" />
     <Content Include="Galeria.aspx" />
+    <Content Include="GaleriaUsers.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Imagen.aspx" />
     <Content Include="imgPrueba\pueblos-magicos-de-Guanajuato_Header.jpg" />
@@ -325,6 +326,13 @@
     </Compile>
     <Compile Include="Galeria.aspx.designer.cs">
       <DependentUpon>Galeria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GaleriaUsers.aspx.cs">
+      <DependentUpon>GaleriaUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GaleriaUsers.aspx.designer.cs">
+      <DependentUpon>GaleriaUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
