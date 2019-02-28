@@ -1,12 +1,11 @@
-﻿function llenarAutobus() {
-    var idAutobus;
+﻿function llenarAutobus(id) {
     $("#tarjetaLugarViaje").addClass("animated bounceInLeft");
     $("#opcionesApartaTuLugar").addClass("animated bounceInLeft");
     $("#asientosAutobus").addClass("animated bounceInLeft");
     $("#tarjetaLugarViaje").css({ 'position': 'absolute', 'margin-left': '65%', 'margin-top': '1px' });
     $("#opcionesApartaTuLugar").css({ 'position': 'absolute', 'margin-left': '30%', 'margin-top': '5%' });
     //Aqui cargo la imagen del autobus Volvo y genera lugares
-    if (idAutobus === 11) {
+    if (id === 12) {
         AutobusVolvo();
     } else {
         AutobusIrizar();
@@ -212,7 +211,7 @@
 }
 
 $("#btnSelectAsientos").click(function () {
-    llenarAutobus();
+    //llenarAutobus();
 });
 
 function AutobusVolvo() {

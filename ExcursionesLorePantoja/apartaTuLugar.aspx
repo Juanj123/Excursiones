@@ -3,15 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="bod" runat="server">
-    <%
-        var Text = "TEXTO";
-        var Num = 333;
-    %>
-
-    <Script>
-alert("<%=Text%>");
-alert("<%=Num%>");
-</Script>
     <link rel="stylesheet" href="content/animate.min.css">
     <link rel="stylesheet" href="content/apartaTuLugar.css" />
     <div id="tarjetaLugarViaje" style="position: absolute; margin-left: 50%">

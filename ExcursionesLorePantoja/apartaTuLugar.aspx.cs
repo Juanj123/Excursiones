@@ -35,13 +35,13 @@ namespace ExcursionesLorePantoja
         //    return Convert.ToInt32(idViaje);
         //}
 
-        private void RegistrarScript()
+        private void RegistrarScript(int id)
         {
             const string ScriptKey = "ScriptKey";
             if (!ClientScript.IsStartupScriptRegistered(this.GetType(), ScriptKey))
             {
                 StringBuilder fn = new StringBuilder();
-                fn.Append("llenarAutobus();");
+                fn.Append("llenarAutobus("+id+");");
                 ClientScript.RegisterStartupScript(this.GetType(),
         ScriptKey, fn.ToString(), true);
             }
@@ -58,7 +58,7 @@ namespace ExcursionesLorePantoja
             var Json = JsonConvert.SerializeObject(lista);
             Response.Cookies["asientosAutobus"].Value = Json;
             idAutobus = dao.getTipoAutobus(idViajes);
-
+            RegistrarScript(idAutobus);
         }
 
         protected void BtnEnviar_Click(object sender, EventArgs e)

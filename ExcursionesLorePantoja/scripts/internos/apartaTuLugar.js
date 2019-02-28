@@ -137,7 +137,7 @@ $("#btnConfirmar").click(function () {
         '</div>' +
         '<div id="Padre"></div>' +
         '<div class="alert alert-dark" role="alert">' +
-        ''
+        ''+
         '</div >');
     $("#exampleModal").modal("show");
     for (var j = 0; j < asientosSeleccionados.length; j++) {
@@ -145,3 +145,9 @@ $("#btnConfirmar").click(function () {
         $("#Padre").append(asiento);
     }
 });
+
+
+function prueba(a,b) {
+    alert(a);
+    alert(b);
+}
