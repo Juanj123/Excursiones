@@ -49,7 +49,6 @@ namespace ExcursionesLorePantoja
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert(' idViaje= "+idViajes+"');", true);
             DaoApartaTuLugar objDaoAparta = new DaoApartaTuLugar();
             lblPrecioAdulto1.Text = objDaoAparta.getDatosViaje(idViajes)[0].Costo_adulto.ToString();
             lblPrecioNino1.Text = objDaoAparta.getDatosViaje(idViajes)[0].CostoNino.ToString();
@@ -58,7 +57,8 @@ namespace ExcursionesLorePantoja
             var Json = JsonConvert.SerializeObject(lista);
             Response.Cookies["asientosAutobus"].Value = Json;
             idAutobus = dao.getTipoAutobus(idViajes);
-            RegistrarScript(idAutobus);
+            //RegistrarScript(idAutobus);
+            idAuto.Text = idAutobus.ToString();
         }
 
         protected void BtnEnviar_Click(object sender, EventArgs e)

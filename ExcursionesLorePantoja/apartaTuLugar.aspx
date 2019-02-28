@@ -105,6 +105,7 @@
                         <h3 style="margin-left: -70px">Total de Asientos</h3>
                         <input class="form-control" id="txtTotal" readonly="readonly" type="text" style="position: inherit; width: 50px; height: 50px; text-align: center; margin-top: -45px; margin-left: 270px" />
                         <button type="button" class="btn btn-danger" id="btnSelectAsientos">Escoge tus asientos</button>
+                        <%--<asp:Button ID="btnSelectAsientos" runat="server" Text="Escoge tus asientos" CssClass="btn btn-danger" OnClick="btnSelectAsientos_Click"/>--%>
                     </li>
                 </ul>
             </div>
@@ -153,7 +154,9 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+        var a = '<asp:Literal ID="idAuto" runat="server"></asp:Literal>';
+    </script>
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/internos/apartaTuLugar.js"></script>
     <script src="scripts/internos/Autobus.js"></script>

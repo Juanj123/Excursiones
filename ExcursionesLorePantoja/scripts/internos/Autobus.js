@@ -211,7 +211,7 @@
 }
 
 $("#btnSelectAsientos").click(function () {
-    //llenarAutobus();
+    llenarAutobus(a);
 });
 
 function AutobusVolvo() {

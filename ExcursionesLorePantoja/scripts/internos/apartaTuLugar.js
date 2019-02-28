@@ -137,7 +137,7 @@ $("#btnConfirmar").click(function () {
         '</div>' +
         '<div id="Padre"></div>' +
         '<div class="alert alert-dark" role="alert">' +
-        ''+
+        '<asp:TextBox ID="txtNota" runat="server" TextMode="MultiLine"></asp:TextBox >' +
         '</div >');
     $("#exampleModal").modal("show");
     for (var j = 0; j < asientosSeleccionados.length; j++) {
@@ -147,7 +147,7 @@ $("#btnConfirmar").click(function () {
 });
 
 
-function prueba(a,b) {
+function prueba(a, b) {
     alert(a);
     alert(b);
 }
