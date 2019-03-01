@@ -1055,6 +1055,10 @@ function AutobusVolvo() {
             '<div class="alert alert-dark" role="alert">' +
             '<h3 style="color:black; text-align:center;">Asientos Seleccionados</h3>' +
             '</div>' +
+            '<div class="form-group">' +
+            '<label for="Nota">Deja una Nota</label>' +
+            '<textarea class="form-control" id="Nota" rows="3"></textarea>' +
+            '</div>' +
             '<div id="Padre"></div>');
         $("#exampleModal").modal("show");
         for (var j = 0; j < asientosSeleccionados.length; j++) {
@@ -1917,6 +1921,10 @@ function AutobusIrizar() {
             '<div class="alert alert-dark" role="alert">' +
             '<h3 style="color:black; text-align:center;">Asientos Seleccionados</h3>' +
             '</div>' +
+            '<div class="form-group">' +
+            '<label for="Nota">Deja una Nota</label>' +
+            '<textarea class="form-control" id="Nota" rows="3"></textarea>' +
+            '</div>' +
             '<div id="Padre"></div>');
         $("#exampleModal").modal("show");
         for (var j = 0; j < asientosSeleccionados.length; j++) {
@@ -1927,6 +1935,4 @@ function AutobusIrizar() {
         document.cookie = 'Asientos = {"Asiento":"' + Json + '"};';
         document.cookie = 'Total =' + (parseFloat(pagoAdulto()) + parseFloat(pagoNino())) + ';';
     });
-
-
 }
