@@ -9,7 +9,8 @@
         <h2 style="position: center">
             <asp:Literal ID="lblDestino" ClientIDMode="Static" runat="server" Mode="Transform">Guanajuato, Guanajuato</asp:Literal></h2>
         <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="imgPrueba/pueblos-magicos-de-Guanajuato_Header.jpg" alt="Card image cap">
+            <%--<img class="card-img-top" src="imgPrueba/pueblos-magicos-de-Guanajuato_Header.jpg" alt="Card image cap">--%>
+            <asp:Literal ID="imgViaje" runat="server"></asp:Literal>
             <div class="card-body">
                 <h4 class="card-text">Precios:</h4>
                 <h5 class="card-text">Adulto:
@@ -156,6 +157,7 @@
     </div>
     <script type="text/javascript">
         var a = '<asp:Literal ID="idAuto" runat="server"></asp:Literal>';
+        var b = '<asp:Literal ID="idViaje" runat="server"></asp:Literal>';
     </script>
     <script src="scripts/jquery-3.2.1.min.js"></script>
     <script src="scripts/internos/apartaTuLugar.js"></script>

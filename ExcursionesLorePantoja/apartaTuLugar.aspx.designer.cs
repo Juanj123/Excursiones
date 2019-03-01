@@ -22,6 +22,15 @@ namespace ExcursionesLorePantoja {
         protected global::System.Web.UI.WebControls.Literal lblDestino;
         
         /// <summary>
+        /// Control imgViaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal imgViaje;
+        
+        /// <summary>
         /// Control lblPrecioAdulto1.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace ExcursionesLorePantoja {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal idAuto;
+        
+        /// <summary>
+        /// Control idViaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal idViaje;
     }
 }

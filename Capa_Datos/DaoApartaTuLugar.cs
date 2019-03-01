@@ -94,6 +94,57 @@ namespace Capa_Datos
             return lstUsuarios;
         }
 
+        public List<PojoUsuarios> getNomApe(int id)
+        {
+            conect.conexion();
+            List<PojoUsuarios> lstUsuarios = new List<PojoUsuarios>();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select nombres, apellidos from usuarios where idUsuario = " + id + "; ";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                PojoUsuarios objUs = new PojoUsuarios();
+                objUs.Nombres = dr.GetString("nombres");
+                objUs.Apellidos = dr.GetString("apellidos");
+                lstUsuarios.Add(objUs);
+            }
+            conect.conectar.Close();
+            return lstUsuarios;
+        }
+
+        public List<PojoViajes> getDatosViajeUsuario(int id)
+        {
+            conect.conexion();
+            List<PojoViajes> lstUsuarios = new List<PojoViajes>();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select destino, hora_regreso, hora_salida, dia, mes, año from viajes where idViaje = " + id + "; ";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                PojoViajes objUs = new PojoViajes();
+                objUs.Destino = dr.GetString("destino");
+                objUs.Horaregreso = dr.GetString("hora_regreso");
+                objUs.Horasalida = dr.GetString("hora_salida");
+                objUs.Dia = dr.GetInt32("dia");
+                objUs.Mes = dr.GetInt32("mes");
+                objUs.Año = dr.GetInt32("año");
+                lstUsuarios.Add(objUs);
+            }
+            conect.conectar.Close();
+            return lstUsuarios;
+        }
+
+
         public List<PojoApartaTuLugar> getDatosViaje(int id)
         {
             conect.conexion();
@@ -113,6 +164,51 @@ namespace Capa_Datos
                 objUs.Destino = dr.GetString("destino");
                 objUs.Costo_adulto = dr.GetDouble("costo_adulto");
                 objUs.CostoNino = dr.GetDouble("costoNino");
+                lstUsuarios.Add(objUs);
+            }
+            conect.conectar.Close();
+            return lstUsuarios;
+        }
+
+        public List<PojoAutobus> getAsientosUsuario(int id)
+        {
+            conect.conexion();
+            List<PojoAutobus> lstUsuarios = new List<PojoAutobus>();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select n_asientos from asientosselect where idUsuario = " + id + "; ";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                PojoAutobus objUs = new PojoAutobus();
+                objUs.NAsientos = dr.GetInt32("n_asientos");
+                lstUsuarios.Add(objUs);
+            }
+            conect.conectar.Close();
+            return lstUsuarios;
+        }
+
+        public List<PojoApartaTuLugar> getTotalReservacion(int id)
+        {
+            conect.conexion();
+            List<PojoApartaTuLugar> lstUsuarios = new List<PojoApartaTuLugar>();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select idReservacion, totalAPagar from reservacion where idReservacion = " + id + "; ";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                PojoApartaTuLugar objUs = new PojoApartaTuLugar();
+                objUs.IdReservacion = dr.GetInt32("idReservacion");
+                objUs.TotalPagar = dr.GetDouble("totalAPagar");
                 lstUsuarios.Add(objUs);
             }
             conect.conectar.Close();
@@ -139,6 +235,28 @@ namespace Capa_Datos
             }
             conect.conectar.Close();
             return idAutobus;
+        }
+
+        public int getIdReservacion(PojoApartaTuLugar objcrear)
+        {
+
+            int idReservacion = 0;
+            conect.conexion();
+            string sql;
+            MySqlCommand cm = new MySqlCommand();
+            MySqlDataReader dr;
+            sql = "select max(idReservacion) as idReservacion from reservacion;";
+            cm.CommandText = sql;
+            cm.CommandType = CommandType.Text;
+            cm.Connection = conect.conectar;
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                PojoApartaTuLugar objUs = new PojoApartaTuLugar();
+                idReservacion = objUs.IdReservacion = dr.GetInt32("idReservacion");
+            }
+            conect.conectar.Close();
+            return idReservacion;
         }
 
         public int getEdad(int id)

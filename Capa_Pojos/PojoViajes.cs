@@ -17,7 +17,7 @@ namespace Capa_Pojos
         double costoadulto;
         double costonino;
         string descripcion;
-        string fecha;
+        int dia, mes, año;
         string nota;
 
         public int Idviaje { get => idviaje; set => idviaje = value; }
@@ -29,7 +29,9 @@ namespace Capa_Pojos
         public double Costoadulto { get => costoadulto; set => costoadulto = value; }
         public double Costonino { get => costonino; set => costonino = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
-        public string Fecha { get => fecha; set => fecha = value; }
+        public int Dia { get => dia; set => dia = value; }
+        public int Mes { get => mes; set => mes = value; }
+        public int Año { get => año; set => año = value; }
         public string Nota { get => nota; set => nota = value; }
     }
 }

@@ -52,9 +52,11 @@ namespace ExcursionesLorePantoja
         protected void Page_Load(object sender, EventArgs e)
         {
             DaoApartaTuLugar objDaoAparta = new DaoApartaTuLugar();
+            string imagen = "<img class='card-img-top' src='" + objDaoAparta.getDatosViaje(idViajes)[0].Img + "' alt='Card image cap'>";
             lblPrecioAdulto1.Text = objDaoAparta.getDatosViaje(idViajes)[0].Costo_adulto.ToString();
             lblPrecioNino1.Text = objDaoAparta.getDatosViaje(idViajes)[0].CostoNino.ToString();
             lblDestino.Text = objDaoAparta.getDatosViaje(idViajes)[0].Destino.ToString();
+            imgViaje.Text = imagen;
             var lista = objDaoAparta.getAsientosOcupados(idViajes);
             var Json = JsonConvert.SerializeObject(lista);
             Response.Cookies["asientosAutobus"].Value = Json;
@@ -292,7 +294,7 @@ namespace ExcursionesLorePantoja
                 {
                     if (lugares.Contains(20) || lugares.Contains(21) || lugares.Contains(22) || lugares.Contains(23)
                         || lugares.Contains(24) || lugares.Contains(25) || lugares.Contains(26) || lugares.Contains(27)
-                        || lugares.Contains(28) || lugares.Contains(29)|| lugares.Contains(12)|| lugares.Contains(32)
+                        || lugares.Contains(28) || lugares.Contains(29) || lugares.Contains(12) || lugares.Contains(32)
                         || lugares.Contains(42))
                     {
                         continue;
@@ -301,9 +303,9 @@ namespace ExcursionesLorePantoja
                 }
                 if (Regex.IsMatch(word, "(1)"))
                 {
-                    if (lugares.Contains(10)|| lugares.Contains(11)|| lugares.Contains(12)|| lugares.Contains(13)
-                        || lugares.Contains(14)|| lugares.Contains(15)|| lugares.Contains(16)|| lugares.Contains(17)
-                        || lugares.Contains(18)|| lugares.Contains(19))
+                    if (lugares.Contains(10) || lugares.Contains(11) || lugares.Contains(12) || lugares.Contains(13)
+                        || lugares.Contains(14) || lugares.Contains(15) || lugares.Contains(16) || lugares.Contains(17)
+                        || lugares.Contains(18) || lugares.Contains(19))
                     {
                         continue;
                     }
@@ -322,77 +324,8 @@ namespace ExcursionesLorePantoja
                 objDaoAparta.registrarAsientos(objAparta);
             }
             objDaoAparta.registrarReservacion(objAparta);
+            objAparta.IdReservacion = objDaoAparta.getIdReservacion(objAparta);
             objDaoAparta.registrarReservacionUsuario(objAparta);
-            Document doc = new Document(PageSize.LETTER);
-            // Indicamos donde vamos a guardar el documento
-            PdfWriter writer = PdfWriter.GetInstance(doc,
-                                        new FileStream(@"C:\Users\laser\Desktop\prueba.pdf", FileMode.Create));
-
-            // Le colocamos el título y el autor
-            // **Nota: Esto no será visible en el documento
-            doc.AddTitle("Mi primer PDF");
-            doc.AddCreator("INNOVASOFT");
-
-            // Abrimos el archivo
-            doc.Open();
-
-            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-
-            // Escribimos el encabezamiento en el documento
-            doc.Add(new Paragraph("Mi primer documento PDF"));
-            doc.Add(Chunk.NEWLINE);
-
-            // Creamos una tabla que contendrá el nombre, apellido y país
-            // de nuestros visitante.
-            PdfPTable tblPrueba = new PdfPTable(3);
-            tblPrueba.WidthPercentage = 100;
-
-            // Configuramos el título de las columnas de la tabla
-            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
-            clNombre.BorderWidth = 0;
-            clNombre.BorderWidthBottom = 0.75f;
-
-            PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
-            clApellido.BorderWidth = 0;
-            clApellido.BorderWidthBottom = 0.75f;
-
-            PdfPCell clPais = new PdfPCell(new Phrase("País", _standardFont));
-            clPais.BorderWidth = 0;
-            clPais.BorderWidthBottom = 0.75f;
-
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
-
-            // Llenamos la tabla con información
-            clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
-            clNombre.BorderWidth = 0;
-
-            clApellido = new PdfPCell(new Phrase("Torres", _standardFont));
-            clApellido.BorderWidth = 0;
-
-            clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
-            clPais.BorderWidth = 0;
-
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
-
-            doc.Add(tblPrueba);
-            // Creamos la imagen y le ajustamos el tamaño
-            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("R:/11 Semestre/INNOVASOFT/Viajes/Excursiones Lore Pantoja.png");
-            imagen.BorderWidth = 0;
-            imagen.Alignment = Element.ALIGN_LEFT;
-            float percentage = 0.0f;
-            percentage = 150 / imagen.Width;
-            imagen.ScalePercent(percentage * 100);
-
-            // Insertamos la imagen en el documento
-            doc.Add(imagen);
-            doc.Close();
-            writer.Close();
             Response.Redirect("apartaTuLugar.aspx");
         }
         [WebMethod]
