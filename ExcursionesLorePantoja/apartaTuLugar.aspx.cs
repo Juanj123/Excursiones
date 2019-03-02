@@ -341,7 +341,10 @@ namespace ExcursionesLorePantoja
             iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
             // Escribimos el encabezamiento en el documento
-            doc.Add(new Paragraph("Mi primer documento PDF"));
+            doc.Add(new Paragraph("Informacion del Viaje"));
+            doc.Add(Chunk.NEWLINE);
+
+            doc.Add(new Paragraph("Informacion del Usuario"));
             doc.Add(Chunk.NEWLINE);
 
             // Creamos una tabla que contendrá el nombre, apellido y país
@@ -362,7 +365,6 @@ namespace ExcursionesLorePantoja
             tblNombre.AddCell(clNombre);
             tblNombre.AddCell(clApellido);
 
-
             // Llenamos la tabla con información
             clNombre = new PdfPCell(new Phrase(objDaoAparta.getNomApe(idUsuario)[0].Nombres, _standardFont));
             clNombre.BorderWidth = 0;
@@ -375,6 +377,9 @@ namespace ExcursionesLorePantoja
             tblNombre.AddCell(clApellido);
 
             doc.Add(tblNombre);
+
+            doc.Add(new Paragraph("Informacion del Viaje"));
+            doc.Add(Chunk.NEWLINE);
 
             PdfPTable tblViaje = new PdfPTable(6);
             tblViaje.WidthPercentage = 100;
@@ -446,6 +451,9 @@ namespace ExcursionesLorePantoja
 
             doc.Add(tblViaje);
 
+            doc.Add(new Paragraph("Informacion del Autobus"));
+            doc.Add(Chunk.NEWLINE);
+
             // Creamos una tabla que contendrá el nombre, apellido y país
             // de nuestros visitante.
             PdfPTable tblAsientos = new PdfPTable(1);
@@ -467,6 +475,9 @@ namespace ExcursionesLorePantoja
             tblAsientos.AddCell(clNAsiento);
 
             doc.Add(tblAsientos);
+
+            doc.Add(new Paragraph("Informacion del Pago"));
+            doc.Add(Chunk.NEWLINE);
 
             // Creamos una tabla que contendrá el nombre, apellido y país
             // de nuestros visitante.
@@ -495,8 +506,8 @@ namespace ExcursionesLorePantoja
             clTotal.BorderWidth = 0;
 
             // Añadimos las celdas a la tabla
-            tblTotal.AddCell(clNombre);
-            tblTotal.AddCell(clApellido);
+            tblTotal.AddCell(clID);
+            tblTotal.AddCell(clTotal);
 
             doc.Add(tblTotal);
 
