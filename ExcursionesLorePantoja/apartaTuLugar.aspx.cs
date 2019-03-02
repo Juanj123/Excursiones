@@ -282,7 +282,7 @@ namespace ExcursionesLorePantoja
                 }
                 if (Regex.IsMatch(word, "(3)"))
                 {
-                    if (lugares.Contains(30) || lugares.Contains(31) || lugares.Contains(32) || lugares.Contains(33)
+                    if (lugares.Contains(23)||lugares.Contains(30) || lugares.Contains(31) || lugares.Contains(32) || lugares.Contains(33)
                         || lugares.Contains(34) || lugares.Contains(35) || lugares.Contains(36) || lugares.Contains(37)
                         || lugares.Contains(38) || lugares.Contains(39) || lugares.Contains(13) || lugares.Contains(43))
                     {
@@ -305,7 +305,7 @@ namespace ExcursionesLorePantoja
                 {
                     if (lugares.Contains(10) || lugares.Contains(11) || lugares.Contains(12) || lugares.Contains(13)
                         || lugares.Contains(14) || lugares.Contains(15) || lugares.Contains(16) || lugares.Contains(17)
-                        || lugares.Contains(18) || lugares.Contains(19))
+                        || lugares.Contains(18) || lugares.Contains(19)||lugares.Contains(21)||lugares.Contains(31)|| lugares.Contains(41))
                     {
                         continue;
                     }
@@ -326,6 +326,182 @@ namespace ExcursionesLorePantoja
             objDaoAparta.registrarReservacion(objAparta);
             objAparta.IdReservacion = objDaoAparta.getIdReservacion(objAparta);
             objDaoAparta.registrarReservacionUsuario(objAparta);
+            Document doc = new Document(PageSize.LETTER);
+            // Indicamos donde vamos a guardar el documento
+            PdfWriter writer = PdfWriter.GetInstance(doc,
+                                        new FileStream(@"C:\Users\laser\Desktop\prueba.pdf", FileMode.Create));
+
+            // Le colocamos el título y el autor
+            // **Nota: Esto no será visible en el documento
+            doc.AddTitle("Comprobante de Pago");
+            doc.AddCreator("INNOVASOFT");
+
+            // Abrimos el archivo
+            doc.Open();
+            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+            // Escribimos el encabezamiento en el documento
+            doc.Add(new Paragraph("Mi primer documento PDF"));
+            doc.Add(Chunk.NEWLINE);
+
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblNombre = new PdfPTable(2);
+            tblNombre.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
+            clNombre.BorderWidth = 0;
+            clNombre.BorderWidthBottom = 0.75f;
+
+            PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
+            clApellido.BorderWidth = 0;
+            clApellido.BorderWidthBottom = 0.75f;
+
+            // Añadimos las celdas a la tabla
+            tblNombre.AddCell(clNombre);
+            tblNombre.AddCell(clApellido);
+
+
+            // Llenamos la tabla con información
+            clNombre = new PdfPCell(new Phrase(objDaoAparta.getNomApe(idUsuario)[0].Nombres, _standardFont));
+            clNombre.BorderWidth = 0;
+
+            clApellido = new PdfPCell(new Phrase(objDaoAparta.getNomApe(idUsuario)[0].Apellidos, _standardFont));
+            clApellido.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblNombre.AddCell(clNombre);
+            tblNombre.AddCell(clApellido);
+
+            doc.Add(tblNombre);
+
+            PdfPTable tblViaje = new PdfPTable(6);
+            tblViaje.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clDestino = new PdfPCell(new Phrase("Destino", _standardFont));
+            clDestino.BorderWidth = 0;
+            clDestino.BorderWidthBottom = 0.75f;
+
+            PdfPCell clHoraSalida = new PdfPCell(new Phrase("Hora de Salida", _standardFont));
+            clHoraSalida.BorderWidth = 0;
+            clHoraSalida.BorderWidthBottom = 0.75f;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clHoraRegreso = new PdfPCell(new Phrase("Hora de Regreso", _standardFont));
+            clHoraRegreso.BorderWidth = 0;
+            clHoraRegreso.BorderWidthBottom = 0.75f;
+
+            PdfPCell clDia = new PdfPCell(new Phrase("Dia del Viaje", _standardFont));
+            clDia.BorderWidth = 0;
+            clDia.BorderWidthBottom = 0.75f;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clMes = new PdfPCell(new Phrase("Mes del Viaje", _standardFont));
+            clMes.BorderWidth = 0;
+            clMes.BorderWidthBottom = 0.75f;
+
+            PdfPCell clAño = new PdfPCell(new Phrase("Año del Viaje", _standardFont));
+            clAño.BorderWidth = 0;
+            clAño.BorderWidthBottom = 0.75f;
+
+            // Añadimos las celdas a la tabla
+            tblViaje.AddCell(clDestino);
+            tblViaje.AddCell(clHoraSalida);
+            tblViaje.AddCell(clHoraRegreso);
+            tblViaje.AddCell(clDia);
+            tblViaje.AddCell(clMes);
+            tblViaje.AddCell(clAño);
+
+
+            // Llenamos la tabla con información
+            clDestino = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Destino, _standardFont));
+            clDestino.BorderWidth = 0;
+
+            clHoraSalida = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Horasalida, _standardFont));
+            clHoraSalida.BorderWidth = 0;
+
+            // Llenamos la tabla con información
+            clHoraRegreso = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Horaregreso, _standardFont));
+            clHoraRegreso.BorderWidth = 0;
+
+            clDia = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Dia.ToString(), _standardFont));
+            clDia.BorderWidth = 0;
+
+            // Llenamos la tabla con información
+            clMes = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Mes.ToString(), _standardFont));
+            clMes.BorderWidth = 0;
+
+            clAño = new PdfPCell(new Phrase(objDaoAparta.getDatosViajeUsuario(idUsuario)[0].Año.ToString(), _standardFont));
+            clAño.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblViaje.AddCell(clDestino);
+            tblViaje.AddCell(clHoraSalida);
+            tblViaje.AddCell(clHoraRegreso);
+            tblViaje.AddCell(clDia);
+            tblViaje.AddCell(clMes);
+            tblViaje.AddCell(clAño);
+
+            doc.Add(tblViaje);
+
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblAsientos = new PdfPTable(1);
+            tblNombre.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clNAsiento = new PdfPCell(new Phrase("No de Asiento(s)", _standardFont));
+            clNAsiento.BorderWidth = 0;
+            clNAsiento.BorderWidthBottom = 0.75f;
+
+            // Añadimos las celdas a la tabla
+            tblAsientos.AddCell(clNAsiento);
+
+            // Llenamos la tabla con información
+            clNAsiento = new PdfPCell(new Phrase(objDaoAparta.getAsientosUsuario(idUsuario)[0].NAsientos.ToString(), _standardFont));
+            clNAsiento.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblAsientos.AddCell(clNAsiento);
+
+            doc.Add(tblAsientos);
+
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblTotal = new PdfPTable(2);
+            tblNombre.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clID = new PdfPCell(new Phrase("ID de la Reservacion", _standardFont));
+            clID.BorderWidth = 0;
+            clID.BorderWidthBottom = 0.75f;
+
+            PdfPCell clTotal = new PdfPCell(new Phrase("Total a Pagar", _standardFont));
+            clTotal.BorderWidth = 0;
+            clTotal.BorderWidthBottom = 0.75f;
+
+            // Añadimos las celdas a la tabla
+            tblTotal.AddCell(clID);
+            tblTotal.AddCell(clTotal);
+
+
+            // Llenamos la tabla con información
+            clID = new PdfPCell(new Phrase(objDaoAparta.getTotalReservacion(objDaoAparta.getIdReservacion(objAparta))[0].IdReservacion.ToString(), _standardFont));
+            clID.BorderWidth = 0;
+
+            clTotal = new PdfPCell(new Phrase(objDaoAparta.getTotalReservacion(objDaoAparta.getIdReservacion(objAparta))[0].TotalPagar.ToString(), _standardFont));
+            clTotal.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblTotal.AddCell(clNombre);
+            tblTotal.AddCell(clApellido);
+
+            doc.Add(tblTotal);
+
+            doc.Close();
+            writer.Close();
             Response.Redirect("apartaTuLugar.aspx");
         }
         [WebMethod]

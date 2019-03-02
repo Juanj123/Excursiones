@@ -124,7 +124,7 @@ namespace Capa_Datos
             string sql;
             MySqlCommand cm = new MySqlCommand();
             MySqlDataReader dr;
-            sql = "select destino, hora_regreso, hora_salida, dia, mes, año from viajes where idViaje = " + id + "; ";
+            sql = "select destino, hora_regreso, hora_salida, dia, mes, año as ano from viajes where idViaje = " + id + "; ";
             cm.CommandText = sql;
             cm.CommandType = CommandType.Text;
             cm.Connection = conect.conectar;
@@ -137,7 +137,7 @@ namespace Capa_Datos
                 objUs.Horasalida = dr.GetString("hora_salida");
                 objUs.Dia = dr.GetInt32("dia");
                 objUs.Mes = dr.GetInt32("mes");
-                objUs.Año = dr.GetInt32("año");
+                objUs.Año = dr.GetInt32("ano");
                 lstUsuarios.Add(objUs);
             }
             conect.conectar.Close();
